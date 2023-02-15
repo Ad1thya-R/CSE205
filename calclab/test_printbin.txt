@@ -1,0 +1,35 @@
+wordsize 4
+8
+2
+7
+-1
+wordsize 8
+7
+-7
+128
+127
+-1
+255
+wordsize 16
+32768
+32767
+-1
+wordsize 17
+2
+255
+wordsize 32
+-2147483648
+2147483647
+-1
+wordsize 7
+64
+63
+-1
+wordsize 9
+256
+255
+-1
+wordsize 15
+16384
+16383
+-1
