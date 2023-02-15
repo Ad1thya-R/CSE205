@@ -1,3 +1,4 @@
+#userid: Adithya.ravichadran
 #!/bin/bash
 #if no directory is specified, set directory to root
 if [ $# -eq 0 ]
