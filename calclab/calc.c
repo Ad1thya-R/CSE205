@@ -3,11 +3,13 @@
 #include <string.h>
 
 /*
-   name: TODO
-   userid: TODO
+   name: Adithya Ravichandran
+   userid: adithya.ravichandran
 
    Why is hexadecimal a useful display format for systems programmers?
-   TODO
+   Hexadecimal numbers provide an easier way to read and represent numbers
+   compared to binary numbers because they are much shorter and also not
+   relatively hard to compute hence, a useful display format.
  */
 
 /*
