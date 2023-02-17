@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MakefileSettings">
+    <option name="linkedExternalProjectsSettings">
+      <MakefileProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/calclab" />
+        <option name="version" value="2" />
+      </MakefileProjectSettings>
+    </option>
+  </component>
+  <component name="MakefileWorkspace" PROJECT_DIR="$PROJECT_DIR$/calclab">
+    <contentRoot DIR="$PROJECT_DIR$" />
+  </component>
+  <component name="UnattendedHostPersistenceState">
+    <option name="openedFilesInfos">
+      <list>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="379" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/work.txt" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="3736" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/calclab/calc.c" />
+        </OpenedFileInfo>
+      </list>
+    </option>
+  </component>
+</project>
