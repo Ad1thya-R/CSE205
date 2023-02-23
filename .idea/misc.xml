@@ -21,12 +21,12 @@
     <option name="openedFilesInfos">
       <list>
         <OpenedFileInfo>
-          <option name="caretOffset" value="379" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/work.txt" />
+          <option name="caretOffset" value="2430" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/calclab/calc.c" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="3736" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/calclab/calc.c" />
+          <option name="caretOffset" value="8457" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/datalab-handout/bits.c" />
         </OpenedFileInfo>
       </list>
     </option>
