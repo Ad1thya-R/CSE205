@@ -1,0 +1,45 @@
+                            | # Adithya Ravichandran
+                            | # id: adithya.ravichandran
+                            | 
+0x000: 500f0000000000000000 |     mrmovq $0, %rax     # sum
+0x00a: 30f30000000000000000 |     irmovq $0, %rbx     # pointer
+0x014: 30f60000000000000000 |     irmovq $0, %rsi     # second pointer
+0x01e: 30f9ffffffffffffffff |     irmovq $-1, %r9     # const -1
+0x028: 30fa0000000000000000 |     irmovq $0, %r10     # const 0
+0x032: 30f80800000000000000 |     irmovq $8, %r8      # byte size
+0x03c: 502fb800000000000000 |     mrmovq len, %rdx    # length
+                            | 
+0x046:                      | Lstart:
+0x046: 61a2                 |     subq   %r10, %rdx   # check while
+0x048: 765a00000000000000   |     jg Loop             # check len-0>0
+0x051: 707d00000000000000   |     jmp Lend
+                            | 
+0x05a:                      | Loop:                   # reverse the arrays and add values to the sum
+0x05a: 50168800000000000000 |     mrmovq src(%rsi), %rcx      # get value of src(pointer)
+0x064: 6010                 |     addq   %rcx, %rax           # add value to sum register
+0x066: 4016a000000000000000 |     rmmovq %rcx, dst(%rsi)      # change value of dst(second pointer)
+0x070: 6092                 |     addq   %r9, %rdx            # decrease len by 1
+0x072: 6086                 |     addq   %r8, %rsi           # add 8 to the pointer for dst
+0x074: 704600000000000000   |     jmp Lstart
+                            | 
+0x07d:                      | Lend:
+0x07d: 400fc000000000000000 |     rmmovq %rax, sum    # return sum
+0x087: 00                   |     halt
+                            | 
+                            | 
+0x088:                      | .align 8
+                            | # Source block
+0x088:                      | src:
+0x088: 0a00000000000000     |         .quad 0x00a
+0x090: b000000000000000     |         .quad 0x0b0
+0x098: 000c000000000000     |         .quad 0xc00
+                            | 
+                            | # Destination block
+0x0a0:                      | dst:
+0x0a0: 1101000000000000     |         .quad 0x111
+0x0a8: 2202000000000000     |         .quad 0x222
+0x0b0: 3303000000000000     |         .quad 0x333
+                            | 
+0x0b8: 0300000000000000     | len: .quad 0x03
+0x0c0: 0000000000000000     | sum: .quad 0x00
+                            | 

@@ -1,0 +1,44 @@
+# Adithya Ravichandran
+# id: adithya.ravichandran
+
+    irmovq $0, %rax     # sum
+    irmovq $0, %rsi     # second pointer
+    irmovq $-1, %r9     # const -1
+    irmovq $0, %r10     # const 0
+    irmovq $8, %r8      # byte size
+    mrmovq len, %rdx    # length
+
+Lstart:
+    subq   %r10, %rdx   # check while
+    jg Loop             # check len-0>0
+    jmp Lend
+
+Loop:                   # reverse the arrays and add values to the sum
+    mrmovq src(%rsi), %rcx      # get value of src(pointer)
+    addq   %rcx, %rax           # add value to sum register
+    rmmovq %rcx, dst(%rsi)      # change value of dst(second pointer)
+    addq   %r9, %rdx            # decrease len by 1
+    addq   %r8, %rsi           # add 8 to the pointer for dst
+    jmp Lstart
+
+Lend:
+    rmmovq %rax, sum    # return sum
+    halt
+
+
+.align 8
+# Source block
+src:
+        .quad 0x00a
+        .quad 0x0b0
+        .quad 0xc00
+
+# Destination block
+dst:
+        .quad 0x111
+        .quad 0x222
+        .quad 0x333
+
+len: .quad 0x03
+sum: .quad 0x00
+

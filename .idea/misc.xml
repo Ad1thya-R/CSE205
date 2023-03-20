@@ -25,8 +25,20 @@
           <option name="fileUrl" value="file://$PROJECT_DIR$/calclab/calc.c" />
         </OpenedFileInfo>
         <OpenedFileInfo>
+          <option name="caretOffset" value="49" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/archlab-handout/sim/misc/expr.ys" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="80" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/archlab-handout/sim/misc/copy.ys" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
           <option name="caretOffset" value="8457" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/datalab-handout/bits.c" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="0" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/archlab-handout/sim/seq/seq-full.hcl" />
         </OpenedFileInfo>
       </list>
     </option>

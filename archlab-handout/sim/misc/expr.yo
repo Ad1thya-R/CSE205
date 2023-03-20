@@ -1,0 +1,20 @@
+                            | # Adithya Ravichandran
+                            | # id: adithya.ravichandran
+                            | #write a program that computes y = x+5 ? x+3 : x
+0x000: 500f0001000000000000 |     mrmovq  x, %rax # load x in rax
+0x00a: 503f0801000000000000 |     mrmovq  y, %rbx # load y in rbx
+0x014: 30f10500000000000000 |     irmovq  $5, %rcx # load 5 in rcx
+0x01e: 6110                 |     subq    %rcx, %rax #x-5
+0x020: 763e00000000000000   |     jg      Ltrue  # if x-5>0 jump Ltrue
+0x029: 30f10500000000000000 |     irmovq  $5, %rcx # load 0 into %rcx
+0x033: 6001                 |     addq    %rax, %rcx # %rcx = %rcx + %rax
+0x035: 704a00000000000000   |     jmp     Lend
+0x03e:                      | Ltrue:
+0x03e: 30f10800000000000000 |     irmovq  $8, %rcx # load 3 into %rcx
+0x048: 6001                 |     addq    %rax, %rcx # %rcx = %rcx + %rax
+0x04a:                      | Lend:
+0x04a: 401f0801000000000000 |     rmmovq  %rcx, y
+0x054: 00                   |     halt
+0x100:                      | .pos 0x100
+0x100: 0b00000000000000     | x: .quad 0x0b
+0x108: 0000000000000000     | y: .quad 0x00
