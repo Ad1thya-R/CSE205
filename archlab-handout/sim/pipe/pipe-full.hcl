@@ -8,7 +8,9 @@
 ## The file contains a declaration of the icodes
 ## for iaddq (IIADDQ)
 ## Your job is to add the rest of the logic to make it work
-
+## Include your name and ID here.
+## name = Adithya Ravichandran
+## id = adithya.ravichandran
 ## Adam Cooper ac251190
 ## 1. Implemented iaddq instruction
 ## 2. Added MUX circuit for stage E
