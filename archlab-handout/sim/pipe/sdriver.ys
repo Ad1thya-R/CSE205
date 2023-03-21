@@ -17,7 +17,8 @@ StartFun:
 # Return the number of positive words (>0) contained in src.
 #
 # Include your name and ID here.
-#
+# name = Adithya Ravichandran
+# id =
 # Describe how and why you modified the baseline code.
 #
 ##################################################################
@@ -28,24 +29,155 @@ ncopy:
 
 ##################################################################
 # You can modify this portion
-	# Loop header
-	xorq %rax,%rax		# count = 0;
-	andq %rdx,%rdx		# len <= 0?
-	jle Done		# if so, goto Done:
+    xorq %rax,%rax		# count = 0;
+    iaddq $-10, %rdx 	# len < 0
+    jl Check2			# if so, goto Check2:
+MainLoop:
+    mrmovq (%rdi), %r10		# read val from src...
+    mrmovq 8(%rdi), %r11	# read val from src...
+    mrmovq 16(%rdi), %r12	# read val from src...
+    mrmovq 24(%rdi), %r13	# read val from src...
+    mrmovq 32(%rdi), %r14	# read val from src...
+    mrmovq 40(%rdi), %r8	# read val from src...
+    mrmovq 48(%rdi), %r9	# read val from src...
+    mrmovq 56(%rdi), %rbx	# read val from src...
+    mrmovq 64(%rdi), %rcx	# read val from src...
+    mrmovq 72(%rdi), %rbp	# read val from src...
+    rmmovq %r10, (%rsi)		# ...and store it to dst
+    rmmovq %r11, 8(%rsi)	# ...and store it to dst
+    rmmovq %r12, 16(%rsi)	# ...and store it to dst
+    rmmovq %r13, 24(%rsi)	# ...and store it to dst
+    rmmovq %r14, 32(%rsi)	# ...and store it to dst
+    rmmovq %r8, 40(%rsi)	# ...and store it to dst
+    rmmovq %r9, 48(%rsi)	# ...and store it to dst
+    rmmovq %rbx, 56(%rsi)	# ...and store it to dst
+    rmmovq %rcx, 64(%rsi)	# ...and store it to dst
+    rmmovq %rbp, 72(%rsi)	# ...and store it to dst
 
-Loop:	mrmovq (%rdi), %r10	# read val from src...
-	rmmovq %r10, (%rsi)	# ...and store it to dst
-	andq %r10, %r10		# val <= 0?
-	jle Npos		# if so, goto Npos:
-	irmovq $1, %r10
-	addq %r10, %rax		# count++
-Npos:	irmovq $1, %r10
-	subq %r10, %rdx		# len--
-	irmovq $8, %r10
-	addq %r10, %rdi		# src++
-	addq %r10, %rsi		# dst++
-	andq %rdx,%rdx		# len > 0?
-	jg Loop			# if so, goto Loop:
+E1:  andq %r10, %r10			# val <= 0?
+        jle E2				# if so, goto E2:
+        iaddq $1, %rax			# count++
+
+E2:	andq %r11, %r11			# val <= 0?
+        jle E3				# if so, goto E3:
+        iaddq $1, %rax			# count++
+
+E3:	andq %r12, %r12			# val <= 0?
+        jle E4				# if so, goto E4:
+        iaddq $1, %rax			# count++
+
+E4:	andq %r13, %r13			# val <= 0?
+        jle E5				# if so, goto E5:
+        iaddq $1, %rax			# count++
+
+E5:	andq %r14, %r14			# val <= 0?
+        jle E6				# if so, goto E6:
+        iaddq $1, %rax			# count++
+
+E6:	andq %r8, %r8			# val <= 0?
+        jle E7				# if so, goto E7:
+        iaddq $1, %rax			# count++
+
+E7:	andq %r9, %r9			# val <= 0?
+        jle E8				# if so, goto E8:
+        iaddq $1, %rax			# count++
+
+E8:	andq %rbx, %rbx			# val <= 0?
+        jle E9				# if so, goto E9:
+        iaddq $1, %rax			# count++
+
+E9:	andq %rcx, %rcx			# val <= 0?
+        jle E10				# if so, goto E10:
+        iaddq $1, %rax			# count++
+
+E10:	andq %rbp, %rbp			# val <= 0?
+        jle Check				# if so, goto Check:
+        iaddq $1, %rax			# count++
+
+Check:	iaddq $80, %rdi		# src+=10
+        iaddq $80, %rsi		# dst+=10
+        iaddq $-10, %rdx 	# len >= 0
+        jge MainLoop		# if so, goto MainLoop:
+
+Check2: iaddq $5, %rdx		# fix length back & check for len
+        jl Manual			# if len < 0, goto Manual
+
+Loop2:
+        mrmovq (%rdi), %r10		# read val from src...
+        mrmovq 8(%rdi), %r11	# read val from src...
+        mrmovq 16(%rdi), %r12	# read val from src...
+        mrmovq 24(%rdi), %r13	# read val from src...
+        mrmovq 32(%rdi), %r14	# read val from src...
+        rmmovq %r10, (%rsi)		# ...and store it to dst
+        rmmovq %r11, 8(%rsi)	# ...and store it to dst
+        rmmovq %r12, 16(%rsi)	# ...and store it to dst
+        rmmovq %r13, 24(%rsi)	# ...and store it to dst
+        rmmovq %r14, 32(%rsi)	# ...and store it to dst
+
+R1:	andq %r10, %r10			# val <= 0?
+    jle R2					# if so, goto R2:
+    iaddq $1, %rax			# count++
+
+R2:	andq %r11, %r11			# val <= 0?
+    jle R3					# if so, goto R3:
+    iaddq $1, %rax			# count++
+
+R3:	andq %r12, %r12			# val <= 0?
+    jle R4					# if so, goto R4:
+    iaddq $1, %rax			# count++
+
+R4:	andq %r13, %r13			# val <= 0?
+    jle R5					# if so, goto R5:
+    iaddq $1, %rax			# count++
+
+R5:	andq %r14, %r14			# val <= 0?
+    jle EndLoop2			# if so, goto EndLoop2:
+    iaddq $1, %rax			# count++
+
+EndLoop2:
+    iaddq $40, %rdi		# src+=5
+    iaddq $40, %rsi		# dst+=5
+    iaddq $-5, %rdx 	# len <= 0
+
+Manual:
+        iaddq $5, %rdx		# fix length back
+        jg L1				# if len > 0, add L1
+        ret
+L1:	mrmovq (%rdi), %r10		# read val from src...
+    rmmovq %r10, (%rsi)		# ...and store it to dst
+    andq %r10, %r10			# val <= 0?
+    jle C1					# if so, goto C1:
+    iaddq $1, %rax			# count++
+
+C1:	iaddq $-1, %rdx		# len--
+    jg L2				# if so, go to L2:
+    ret
+
+L2: mrmovq 8(%rdi), %r10	# read val from src...
+    rmmovq %r10, 8(%rsi)	# ...and store it to dst
+    andq %r10, %r10			# val <= 0?
+    jle C2					# if so, goto C2:
+    iaddq $1, %rax			# count++
+
+C2: iaddq $-1, %rdx		# len--
+    jg L3				# if so, go to L3:
+    ret
+
+L3: mrmovq 16(%rdi), %r10	# read val from src...
+    rmmovq %r10, 16(%rsi)	# ...and store it to dst
+    andq %r10, %r10			# val <= 0?
+    jle C3				# if so, goto Done:
+    iaddq $1, %rax			# count++
+
+C3: iaddq $-1, %rdx		# len--
+    jg L4				# if so, go to L3:
+    ret
+
+L4: mrmovq 24(%rdi), %r10	# read val from src...
+    rmmovq %r10, 24(%rsi)	# ...and store it to dst
+    andq %r10, %r10			# val <= 0?
+    jle Done				# if so, goto Done:
+    iaddq $1, %rax			# count++
 ##################################################################
 # Do not modify the following section of code
 # Function epilogue.
@@ -63,8 +195,8 @@ EndFun:
 	.align 8
 src:
 	.quad 1
-	.quad 2
-	.quad -3
+	.quad -2
+	.quad 3
 	.quad -4
 	.quad 0xbcdefa # This shouldn't get moved
 

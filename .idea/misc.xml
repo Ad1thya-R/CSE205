@@ -37,8 +37,12 @@
           <option name="fileUrl" value="file://$PROJECT_DIR$/datalab-handout/bits.c" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="0" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/archlab-handout/sim/seq/seq-full.hcl" />
+          <option name="caretOffset" value="329" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/archlab-handout/sim/pipe/ncopy.ys" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="13051" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/archlab-handout/sim/pipe/pipe-full.hcl" />
         </OpenedFileInfo>
       </list>
     </option>
